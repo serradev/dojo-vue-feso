@@ -1,28 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <body>
+    <container id="app" class="container">  
+      <nav class="d-flex justify-content-center mb-5 pt-0">
+        <img alt="Pokedex" src="./assets/pokedex.png" />  
+      </nav>
+      <aside class="col-5">
+        <PokemonList titulo="Pokemons"/>
+      </aside>      
+    </container>
+  </body>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import PokemonList from "./components/PokemonList.vue";
 
 export default {
   name: "app",
   components: {
-    HelloWorld
+    PokemonList
   }
 };
 </script>
 
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
+  body {
+    background:url(https://images8.alphacoders.com/558/558665.jpg) no-repeat !important;
+    background-size:cover;
+  }
 </style>
