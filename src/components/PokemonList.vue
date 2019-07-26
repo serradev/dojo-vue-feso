@@ -3,8 +3,6 @@
     <button  v-for="p in pokemons" :key="p.index" type="button" class="list-group-item list-group-item-action" v-on:click="obterDadosPokemon(p)">
       {{p.name}}
     </button>
-
-    {{pokemonSelecionado}}
   </div>
 </template>
 
@@ -19,7 +17,7 @@ export default {
   data: function() {
     return {
       pokemons: [],
-      pokemonSelecionado: null
+      pokemonSelecionado: undefined
     }    
   },  
   methods: {
@@ -44,6 +42,8 @@ export default {
             image: data.sprites.front_default,
             type: data.types[0].type.name
           };
+
+          this.$emit('pokemon-selecionado', this.pokemonSelecionado)
         });
     },
     carregarPokemons(pagina) {

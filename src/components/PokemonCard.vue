@@ -8,11 +8,10 @@
             <li class="breadcrumb-item active" aria-current="page">Data</li>
         </ol>
       </nav>     
-      
-
+    
       <div class="card-body">
-        <img src="../assets/pokedex.png" class="card-img-top mt-0 mb-2">
-        <PokemonStat></PokemonStat>
+        <img v-bind:src="itemSelecionado.image" class="card-img-top mt-0 mb-2">        
+        <PokemonStat :item="itemSelecionado"></PokemonStat>
       </div>
     </div>
   </div>
@@ -26,8 +25,18 @@ export default {
     PokemonStat
   },
   props: {
-    item: String
-  }
+    item: Object
+  },
+  data() {
+    return {
+      itemSelecionado: Object
+    }
+  },
+  watch: { 
+    item(e) {
+      this.itemSelecionado = e;
+    }
+  }  
 }
 </script>
 

@@ -6,10 +6,10 @@
       </nav>
       <div class="col-12 row">
         <aside class="col-5">
-          <PokemonList/>
+          <PokemonList @pokemon-selecionado="pokemonAlterado"></PokemonList>
         </aside> 
         <div class="col-7">
-          <PokemonCard item="{}"></PokemonCard>
+          <PokemonCard :item="pokemonSelecionado"></PokemonCard>
         </div>           
       </div>
     </div>
@@ -25,6 +25,16 @@ export default {
   components: {
     PokemonList,
     PokemonCard
+  },
+  data() {
+    return {
+      pokemonSelecionado: undefined
+    }
+  },
+  methods: {
+    pokemonAlterado(e) {
+      this.pokemonSelecionado = e;
+    }
   }
 };
 </script>
