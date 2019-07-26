@@ -27,8 +27,10 @@ export default {
   props: {
     titulo: String
   },
-  data() {
-    this.pokemons = [];
+  data: function() {
+    return {
+      pokemons: []
+    }    
   },  
   methods: {
     obterListaPokemon(offset) {
