@@ -1,10 +1,15 @@
 <template>
   <div class="list-group">
-    <button type="button" class="list-group-item list-group-item-action">Cras justo odio</button>
+    <button type="button" class="list-group-item list-group-item-action">
+      Cras justo odio
+    </button>
     <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
     <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
     <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
     <button type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</button>
+
+    {{pokemons}}
+
 
     <ul id="example-1">
       <li v-for="p in pokemons" :key="p.order">
@@ -28,7 +33,7 @@ export default {
   methods: {
     obterListaPokemon(offset) {
       const URL = 'https://pokeapi.co/api/v2/pokemon/';
-      axios
+      return axios
         .get(URL, {
           params: {
             offset,
@@ -37,8 +42,7 @@ export default {
         })
         .then(response => {
           let data = response.data.results;
-        
-
+          let retorno = [];
           data.forEach(item => {
             let pokemon = {
               name: item.name,
@@ -51,7 +55,12 @@ export default {
     }
   },
   mounted() {
-    this.obterListaPokemon(0);
+    this.obterListaPokemon(0).then(
+      data => {
+        // POR QUE NÃO PRINTA NA TELA? O ARRAY TÁ PREENCHIDO!
+        console.log(this.pokemons);
+      }
+    );    
   }
 };
 </script>
