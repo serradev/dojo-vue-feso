@@ -1,21 +1,8 @@
 <template>
   <div class="list-group">
-    <button type="button" class="list-group-item list-group-item-action">
-      Cras justo odio
+    <button  v-for="p in pokemons" :key="p.order" type="button" class="list-group-item list-group-item-action">
+      {{p.name}}
     </button>
-    <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-    <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
-    <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
-    <button type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</button>
-
-    {{pokemons}}
-
-
-    <ul id="example-1">
-      <li v-for="p in pokemons" :key="p.order">
-        {{ p.name }}
-      </li>
-    </ul>
   </div>
 </template>
 
@@ -57,12 +44,7 @@ export default {
     }
   },
   mounted() {
-    this.obterListaPokemon(0).then(
-      data => {
-        // POR QUE NÃO PRINTA NA TELA? O ARRAY TÁ PREENCHIDO!
-        console.log(this.pokemons);
-      }
-    );    
+    this.obterListaPokemon(0);
   }
 };
 </script>
