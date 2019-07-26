@@ -35,5 +35,6 @@ export default {
   body {
     background:url(https://images8.alphacoders.com/558/558665.jpg) no-repeat !important;
     background-size:cover;
+    margin-bottom: 20px;
   }
 </style>
