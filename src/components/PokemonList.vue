@@ -1,7 +1,7 @@
 <template>
 
   <div class="list-group">
-    <button type="button" class="list-group-item list-group-item-action ">
+    <button type="button" class="list-group-item list-group-item-action">
       Cras justo odio
     </button>
     <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
@@ -16,7 +16,6 @@
 export default {
   name: 'PokemonList',
   props: {
-    titulo: String
   }
 }
 </script>

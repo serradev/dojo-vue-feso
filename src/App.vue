@@ -1,23 +1,30 @@
 <template>
   <body>
-    <container id="app" class="container">  
+    <div id="app" class="container">  
       <nav class="d-flex justify-content-center mb-5 pt-0">
         <img alt="Pokedex" src="./assets/pokedex.png" />  
       </nav>
-      <aside class="col-5">
-        <PokemonList titulo="Pokemons"/>
-      </aside>      
-    </container>
+      <div class="col-12 row">
+        <aside class="col-5">
+          <PokemonList/>
+        </aside> 
+        <div class="col-7">
+          <PokemonCard item="{}"></PokemonCard>
+        </div>           
+      </div>
+    </div>
   </body>
 </template>
 
 <script>
 import PokemonList from "./components/PokemonList.vue";
+import PokemonCard from "./components/PokemonCard.vue";
 
 export default {
   name: "app",
   components: {
-    PokemonList
+    PokemonList,
+    PokemonCard
   }
 };
 </script>
