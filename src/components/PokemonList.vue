@@ -1,7 +1,7 @@
 <template>
   <div class="list-group">
-    <button  v-for="p in pokemons" :key="p.order" type="button" class="list-group-item list-group-item-action" v-on:click="obterDadosPokemon(p)">
-      {{p.order}} - {{p.name}}
+    <button  v-for="p in pokemons" :key="p.index" type="button" class="list-group-item list-group-item-action" v-on:click="obterDadosPokemon(p)">
+      {{p.name}}
     </button>
 
     {{pokemonSelecionado}}
@@ -60,7 +60,7 @@ export default {
           data.forEach(item => {
             let pokemon = {
               name: item.name,
-              order: parseInt(item.url.match(/[^/]+(?=\/$)/g)[0]),
+              index: parseInt(item.url.match(/[^/]+(?=\/$)/g)[0]),
               url: item.url
             };
 
